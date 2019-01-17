@@ -62,7 +62,8 @@ class Pay(object):
         80.0
         """
         total_hrs = HoursCalculator.calculate_hrs(self._start_date, self._start_time, self._end_date, self._end_time)
-        self._wages = float(hourly_rate) * Pay._hrs_to_units(total_hrs)
+        pay = float(hourly_rate) * Pay._hrs_to_units(total_hrs)
+        self._wages = round(pay, ndigits=2)
 
     @property
     def get_daily_rate(self):
